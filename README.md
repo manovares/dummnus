@@ -35,16 +35,23 @@ Enquanto os arquivos não estiverem lá, aparece um aviso cinza no lugar.
 Procure por `R$` na seção de serviços e troque os `--` pelos valores dos três
 serviços: Corte + Barba, Corte/Degradê e Barba na navalha.
 
-### 3. Endereço, horários e dados do atendimento
+### 3. Horários e dados do atendimento
 
-Todos os trechos amarelos. São eles:
+O **endereço já está preenchido**: Rua Regina Consulin Escalhão, 1021 —
+Jd. Maria Antônia, Sumaré/SP (CEP 13178-380). Aparece no topo, no rodapé,
+na FAQ e nos dados de SEO local, com link para o mapa.
 
-- endereço (aparece no topo e no rodapé)
+Ainda faltam, todos destacados em amarelo:
+
 - dias e horários de funcionamento
 - formas de pagamento
 - tempo médio de atendimento (FAQ)
 - se atende criança e a partir de que idade (FAQ)
 - se tem sábado ou horário estendido (quebra de objeções)
+- se tem estacionamento por perto (FAQ)
+
+Ao preencher os horários, abra também a linha `openingHours` no bloco de
+SEO local, no fim do `index.html`, no formato 24h (ex: `"Tu-Sa 09:00-19:00"`).
 
 ### 4. O bloco "Por que confiar sua cabeça aqui"
 
@@ -81,9 +88,9 @@ Estão prontas no código, comentadas, esperando sua decisão:
 mais forte para o "e se eu não gostar do corte" — mas só ative se você for mesmo
 honrar o prazo. Defina em quantos dias e para quais serviços.
 
-**SEO local (JSON-LD).** No fim do arquivo. Ajuda a barbearia a aparecer na busca
-do Google por "barbearia perto de mim". Preencha o endereço e o horário reais e
-remova os comentários em volta.
+**SEO local (JSON-LD).** Já está **ativo** no fim do arquivo, com nome, endereço,
+CEP, telefone e link do mapa — é o que ajuda a barbearia a aparecer na busca por
+"barbearia em Sumaré". Falta só acrescentar os horários quando você confirmar.
 
 ---
 
