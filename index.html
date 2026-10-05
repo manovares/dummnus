@@ -145,6 +145,7 @@ section{padding:60px 0}
   display:flex;align-items:center;gap:7px
 }
 .selos li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ouro);flex:0 0 auto}
+.selos li:has(.ico)::before{display:none}
 
 /* ---------- listas de dor ---------- */
 .dores{list-style:none;padding:0;margin:0;display:grid;gap:12px}
@@ -337,6 +338,54 @@ html[data-draft="on"] .so-rascunho{display:block}
   .selos{margin-top:18px}
 }
 
+
+/* ---------- assinatura visual de barbearia ---------- */
+.listras{
+  height:10px;width:100%;
+  background:repeating-linear-gradient(118deg,
+    var(--vermelho) 0 22px, #efe9dd 22px 44px,
+    var(--azul) 44px 66px, #efe9dd 66px 88px);
+  box-shadow:inset 0 -3px 7px rgba(0,0,0,.45), inset 0 3px 5px rgba(255,255,255,.14)
+}
+.poste{
+  height:5px;width:100%;
+  background:repeating-linear-gradient(115deg,
+    var(--ouro) 0 10px, transparent 10px 24px)
+}
+
+/* textura diagonal discreta nas secoes escuras */
+.sec-alt{
+  background-image:repeating-linear-gradient(135deg,
+    rgba(255,255,255,.014) 0 2px, transparent 2px 7px)
+}
+
+/* ---------- icones ---------- */
+.ico{
+  width:26px;height:26px;flex:0 0 auto;
+  stroke:var(--ouro);fill:none;
+  stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round
+}
+.ico-cabec{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.ico-cabec h3{margin:0}
+.ico-sel{width:18px;height:18px;stroke-width:1.9}
+.passos .ico{width:30px;height:30px;margin-bottom:10px;display:block}
+.item .ico{width:30px;height:30px}
+
+/* ---------- galeria com moldura ---------- */
+.foto{
+  box-shadow:0 0 0 1px rgba(200,162,75,.28) inset;
+  transition:transform .2s ease,box-shadow .2s ease
+}
+.foto:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(200,162,75,.7) inset,0 10px 26px rgba(0,0,0,.5)}
+.rotulo{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:26px 12px 11px;
+  background:linear-gradient(transparent,rgba(8,8,9,.92));
+  font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--creme);text-align:center;line-height:1.3
+}
+.foto.sem-foto .rotulo{display:none}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{transition:none!important;animation:none!important}
@@ -344,6 +393,51 @@ html[data-draft="on"] .so-rascunho{display:block}
 </style>
 </head>
 <body>
+
+
+<!-- biblioteca de icones (nao aparece; e usada via <use>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-tesoura" viewBox="0 0 24 24">
+    <circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/>
+    <path d="M20 4L8.1 15.9M4 4l11.9 11.9"/>
+  </symbol>
+  <symbol id="i-navalha" viewBox="0 0 24 24">
+    <path d="M2.6 18.2L15.2 5.6l3 3L5.6 21.2z"/>
+    <path d="M15.2 5.6l2.2-2.2 3 3-2.2 2.2"/>
+    <path d="M4 19.6l12.4-12.4"/>
+  </symbol>
+  <symbol id="i-poste" viewBox="0 0 24 24">
+    <rect x="8" y="6" width="8" height="12" rx="4"/>
+    <rect x="6.5" y="2.5" width="11" height="3.5" rx="1.2"/>
+    <rect x="6.5" y="18" width="11" height="3.5" rx="1.2"/>
+    <path d="M8.3 11.5l7.4-3.7M8.3 15.5l7.4-3.7"/>
+  </symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>
+  </symbol>
+  <symbol id="i-espelho" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/>
+  </symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24">
+    <path d="M21 11.5a8.4 8.4 0 01-11.9 7.6L3 21l1.9-5.8A8.4 8.4 0 1121 11.5z"/>
+  </symbol>
+  <symbol id="i-agenda" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="16" rx="2"/>
+    <path d="M3 10h18M8 3v4M16 3v4"/>
+  </symbol>
+  <symbol id="i-cadeira" viewBox="0 0 24 24">
+    <path d="M6 10V6a2 2 0 012-2h8a2 2 0 012 2v4"/>
+    <rect x="4" y="10" width="16" height="5" rx="1.6"/>
+    <path d="M7 15v6M17 15v6M5 21h14"/>
+  </symbol>
+  <symbol id="i-gota" viewBox="0 0 24 24">
+    <path d="M12 3s6 6.2 6 10a6 6 0 11-12 0c0-3.8 6-10 6-10z"/>
+  </symbol>
+  <symbol id="i-pente" viewBox="0 0 24 24">
+    <rect x="2.5" y="4" width="19" height="5" rx="1.6"/>
+    <path d="M6 9v10M10 9v10M14 9v10M18 9v10"/>
+  </symbol>
+</svg>
 
 <!-- ===== AVISO: some sozinho quando voce tirar data-draft="on" do <html> ===== -->
 <div class="aviso-draft so-rascunho">
@@ -379,12 +473,14 @@ html[data-draft="on"] .so-rascunho{display:block}
     </div>
 
     <ul class="selos">
-      <li>Hora marcada, um cliente por vez</li>
-      <li>Navalha e toalha quente</li>
-      <li class="edit">Rua Exemplo, 000 &ndash; Bairro</li>
+      <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-relogio"/></svg>Hora marcada, um cliente por vez</li>
+      <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-navalha"/></svg>Navalha e toalha quente</li>
+      <li class="edit"><svg class="ico ico-sel" aria-hidden="true"><use href="#i-poste"/></svg>Rua Exemplo, 000 &ndash; Bairro</li>
     </ul>
   </div>
 </header>
+
+<div class="listras"></div>
 
 <!-- ============================================================
      SECAO 2 — IDENTIFICACAO COM A PERSONA
@@ -430,7 +526,7 @@ html[data-draft="on"] .so-rascunho{display:block}
     <div class="grid grid-2" style="margin-top:28px">
       <div class="card">
         <span class="num">ANTES DA TESOURA</span>
-        <h3>A gente combina o corte</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-pente"/></svg><h3>A gente combina o corte</h3></div>
         <p>
           Dois minutos de conversa antes de começar: o que você quer, o que já deu errado
           antes e o que funciona no seu tipo de cabelo. É aqui que a maioria dos cortes
@@ -439,7 +535,7 @@ html[data-draft="on"] .so-rascunho{display:block}
       </div>
       <div class="card">
         <span class="num">ANTES DE VOCÊ LEVANTAR</span>
-        <h3>A gente confere no espelho</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-espelho"/></svg><h3>A gente confere no espelho</h3></div>
         <p>
           Nuca, costeleta, contorno e desenho da barba são revisados com você olhando.
           Se tiver algo pra ajustar, ajusta na hora — não quando você já está na rua.
@@ -460,7 +556,7 @@ html[data-draft="on"] .so-rascunho{display:block}
 
     <div class="grid grid-3">
       <div class="card">
-        <h3>Sua tarde continua sua</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg><h3>Sua tarde continua sua</h3></div>
         <p>
           Com hora marcada, você sabe a que horas entra e a que horas sai.
           Dá pra encaixar entre o trabalho e o resto do dia.
@@ -468,7 +564,7 @@ html[data-draft="on"] .so-rascunho{display:block}
         <p class="impacto">Você para de perder meio sábado sentado esperando.</p>
       </div>
       <div class="card">
-        <h3>Você sai com o corte que pediu</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-espelho"/></svg><h3>Você sai com o corte que pediu</h3></div>
         <p>
           A conversa antes e a conferência no espelho depois existem exatamente
           pra eliminar a surpresa ruim.
@@ -476,7 +572,7 @@ html[data-draft="on"] .so-rascunho{display:block}
         <p class="impacto">Você se olha no espelho e gosta — hoje e na foto de amanhã.</p>
       </div>
       <div class="card">
-        <h3>A forma dura mais</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-tesoura"/></svg><h3>A forma dura mais</h3></div>
         <p>
           Degradê bem puxado e contorno feito na navalha crescem de forma mais
           limpa do que um acabamento feito às pressas.
@@ -484,7 +580,7 @@ html[data-draft="on"] .so-rascunho{display:block}
         <p class="impacto">Mais dias com o visual em pé entre uma visita e outra.</p>
       </div>
       <div class="card">
-        <h3>A barba sai desenhada</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-navalha"/></svg><h3>A barba sai desenhada</h3></div>
         <p>
           Toalha quente pra abrir a pele, navalha pro contorno e simetria conferida
           nos dois lados do rosto.
@@ -492,7 +588,7 @@ html[data-draft="on"] .so-rascunho{display:block}
         <p class="impacto">Barba com forma definida, não só “aparada”.</p>
       </div>
       <div class="card">
-        <h3>Ninguém corre com você</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-cadeira"/></svg><h3>Ninguém corre com você</h3></div>
         <p>
           Um cliente por vez significa que o barbeiro está olhando pro seu cabelo,
           e não pra quem está esperando na porta.
@@ -500,7 +596,7 @@ html[data-draft="on"] .so-rascunho{display:block}
         <p class="impacto">Aquele tempo do dia que é só seu, sem ninguém te apressando.</p>
       </div>
       <div class="card">
-        <h3>Agendar leva um minuto</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg><h3>Agendar leva um minuto</h3></div>
         <p>
           É pelo WhatsApp, na conversa que você já usa o dia todo.
           Sem cadastro, sem senha, sem instalar nada.
@@ -530,15 +626,15 @@ html[data-draft="on"] .so-rascunho{display:block}
 
     <ol class="passos">
       <li>
-        <strong>Chama no WhatsApp</strong>
+        <svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg><strong>Chama no WhatsApp</strong>
         <span>Toca no botão. A conversa já abre com a mensagem pronta — você só envia.</span>
       </li>
       <li>
-        <strong>Escolhe dia e hora</strong>
+        <svg class="ico" aria-hidden="true"><use href="#i-agenda"/></svg><strong>Escolhe dia e hora</strong>
         <span>A gente responde com os horários livres. Você escolhe o que couber na sua rotina.</span>
       </li>
       <li>
-        <strong>Chega e senta</strong>
+        <svg class="ico" aria-hidden="true"><use href="#i-cadeira"/></svg><strong>Chega e senta</strong>
         <span>No horário combinado a cadeira está esperando por você. Sem fila, sem espera.</span>
       </li>
     </ol>
@@ -562,19 +658,23 @@ html[data-draft="on"] .so-rascunho{display:block}
       <!-- Coloque os arquivos em assets/fotos/ com estes nomes e os placeholders somem -->
       <figure class="foto" style="margin:0">
         <img src="assets/fotos/corte-01.jpg" alt="Degradê alto infantil com desenho de estrelas" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
-        <figcaption class="vazio"><b>FOTO 01</b>corte-01.jpg<br>(infantil, degradê alto com estrela)</figcaption>
+        <figcaption class="rotulo">Degradê alto + desenho</figcaption>
+        <div class="vazio"><b>FOTO 01</b>corte-01.jpg<br>(infantil, degradê alto com estrela)</div>
       </figure>
       <figure class="foto" style="margin:0">
         <img src="assets/fotos/corte-02.jpg" alt="Barba cheia desenhada com degradê nas laterais e topo penteado" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
-        <figcaption class="vazio"><b>FOTO 02</b>corte-02.jpg<br>(barba desenhada + topo penteado)</figcaption>
+        <figcaption class="rotulo">Barba desenhada</figcaption>
+        <div class="vazio"><b>FOTO 02</b>corte-02.jpg<br>(barba desenhada + topo penteado)</div>
       </figure>
       <figure class="foto" style="margin:0">
         <img src="assets/fotos/corte-03.jpg" alt="Degradê na pele com acabamento limpo na nuca" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
-        <figcaption class="vazio"><b>FOTO 03</b>corte-03.jpg<br>(degradê na pele / buzz)</figcaption>
+        <figcaption class="rotulo">Degradê na pele</figcaption>
+        <div class="vazio"><b>FOTO 03</b>corte-03.jpg<br>(degradê na pele / buzz)</div>
       </figure>
       <figure class="foto" style="margin:0">
         <img src="assets/fotos/corte-04.jpg" alt="Degradê baixo com topo texturizado penteado para trás" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
-        <figcaption class="vazio"><b>FOTO 04</b>corte-04.jpg<br>(degradê baixo, topo texturizado)</figcaption>
+        <figcaption class="rotulo">Degradê baixo texturizado</figcaption>
+        <div class="vazio"><b>FOTO 04</b>corte-04.jpg<br>(degradê baixo, topo texturizado)</div>
       </figure>
     </div>
 
@@ -639,7 +739,7 @@ html[data-draft="on"] .so-rascunho{display:block}
     <div class="menu">
       <div class="item destaque">
         <span class="tag">Mais pedido</span>
-        <h3>Corte + Barba</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-poste"/></svg><h3>Corte + Barba</h3></div>
         <ul>
           <li>Corte completo com degradê e acabamento</li>
           <li>Barba com toalha quente e navalha</li>
@@ -650,7 +750,7 @@ html[data-draft="on"] .so-rascunho{display:block}
       </div>
 
       <div class="item">
-        <h3>Corte / Degradê</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-tesoura"/></svg><h3>Corte / Degradê</h3></div>
         <ul>
           <li>Corte masculino, degradê ou social</li>
           <li>Acabamento de nuca e costeleta na navalha</li>
@@ -660,7 +760,7 @@ html[data-draft="on"] .so-rascunho{display:block}
       </div>
 
       <div class="item">
-        <h3>Barba na navalha</h3>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-navalha"/></svg><h3>Barba na navalha</h3></div>
         <ul>
           <li>Toalha quente para abrir a pele</li>
           <li>Navalha no contorno e no desenho</li>
@@ -853,6 +953,8 @@ html[data-draft="on"] .so-rascunho{display:block}
 <!-- ============================================================
      SECAO 12 — CTA FINAL
      ============================================================ -->
+<div class="listras"></div>
+
 <section class="final">
   <div class="wrap center">
     <p class="kicker">Último passo</p>
@@ -860,7 +962,7 @@ html[data-draft="on"] .so-rascunho{display:block}
     <hr class="rule" style="margin-left:auto;margin-right:auto">
 
     <ul class="resumo">
-      <li>Hora marcada, um cliente por vez</li>
+      <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-relogio"/></svg>Hora marcada, um cliente por vez</li>
       <li>Corte e degradê com acabamento na navalha</li>
       <li>Barba com toalha quente e contorno desenhado</li>
       <li>Conferência no espelho antes de você levantar</li>
@@ -878,6 +980,8 @@ html[data-draft="on"] .so-rascunho{display:block}
     </div>
   </div>
 </section>
+
+<div class="poste"></div>
 
 <footer>
   <div class="wrap">
