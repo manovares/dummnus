@@ -10,25 +10,16 @@ para o mesmo lugar: `wa.me/5519991030274`.
 
 ---
 
-## Falta você preencher (4 coisas)
+## Falta você preencher
 
 A página está em **modo rascunho**: tudo que precisa do seu dado real aparece
 **destacado em amarelo** na tela. Não inventei nenhuma informação.
 
-### 1. As 4 fotos dos cortes
+### ~~1. As 4 fotos dos cortes~~ ✅ feito
 
-Coloque os arquivos que você me mandou em `assets/fotos/` com estes nomes:
-
-| Arquivo | Qual foto |
-|---|---|
-| `corte-01.jpg` | infantil, degradê alto com desenho de estrelas |
-| `corte-02.jpg` | barba cheia desenhada + topo penteado |
-| `corte-03.jpg` | degradê na pele / buzz |
-| `corte-04.jpg` | degradê baixo, topo texturizado |
-
-Exporte com no máximo **1000px de largura e qualidade 80** — foto pesada derruba
-a velocidade da página e some com cliente no celular.
-Enquanto os arquivos não estiverem lá, aparece um aviso cinza no lugar.
+As quatro fotos já estão em `assets/fotos/`, em 800×1000 (proporção 4:5),
+cerca de 120 KB cada, e só carregam quando o visitante rola até a galeria.
+Para trocar alguma, exporte no mesmo formato e mantenha o nome do arquivo.
 
 ### 2. Os preços
 
@@ -96,7 +87,7 @@ CEP, telefone e link do mapa — é o que ajuda a barbearia a aparecer na busca 
 
 ## O que ainda falta para a página ficar completa
 
-**Depoimentos.** É a prova social que mais pesa para negócio local, depois das fotos.
+**Depoimentos.** Com as fotos no ar, é o que falta de prova social.
 A seção já existe e está vazia de propósito — não escrevi nenhum depoimento fictício.
 Assim que você tiver avaliações reais (Google, Instagram ou print do WhatsApp),
 é só mandar que eu encaixo.

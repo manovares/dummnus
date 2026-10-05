@@ -1,12 +1,13 @@
-Coloque aqui as 4 fotos dos cortes, com EXATAMENTE estes nomes:
+Fotos do portfolio que aparecem na galeria da pagina.
 
   corte-01.jpg  -> infantil, degrade alto com desenho de estrelas
   corte-02.jpg  -> barba cheia desenhada + topo penteado
-  corte-03.jpg  -> degrade na pele / buzz
+  corte-03.jpg  -> degrade na pele
   corte-04.jpg  -> degrade baixo, topo texturizado
 
-Exporte com no maximo 1000px de largura e qualidade 80.
-Foto pesada deixa a pagina lenta e faz perder cliente no celular.
+Todas em 800x1000 (proporcao 4:5), qualidade 80, cerca de 120 KB cada.
+Carregam so quando o visitante rola ate a galeria.
 
-Enquanto os arquivos nao estiverem aqui, a pagina mostra um aviso
-cinza no lugar de cada foto.
+Para trocar alguma: exporte no mesmo formato e mantenha o nome do arquivo.
+Se um arquivo faltar, a pagina mostra um aviso cinza no lugar, sem quebrar
+o layout.
