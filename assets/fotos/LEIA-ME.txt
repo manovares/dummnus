@@ -1,0 +1,12 @@
+Coloque aqui as 4 fotos dos cortes, com EXATAMENTE estes nomes:
+
+  corte-01.jpg  -> infantil, degrade alto com desenho de estrelas
+  corte-02.jpg  -> barba cheia desenhada + topo penteado
+  corte-03.jpg  -> degrade na pele / buzz
+  corte-04.jpg  -> degrade baixo, topo texturizado
+
+Exporte com no maximo 1000px de largura e qualidade 80.
+Foto pesada deixa a pagina lenta e faz perder cliente no celular.
+
+Enquanto os arquivos nao estiverem aqui, a pagina mostra um aviso
+cinza no lugar de cada foto.

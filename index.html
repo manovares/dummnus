@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="pt-BR" data-draft="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dumnus Hub — Barbearia com hora marcada</title>
+<meta name="description" content="Barbearia com hora marcada: corte, degradê e barba na navalha com toalha quente. Você chega na hora combinada, senta e sai com o acabamento feito no detalhe. Agende pelo WhatsApp.">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dumnus Hub — Barbearia com hora marcada">
+<meta property="og:description" content="Corte, degradê e barba na navalha com toalha quente. Hora marcada, sem fila. Agende pelo WhatsApp.">
+<meta property="og:image" content="assets/logo-512.jpg">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="assets/logo-512.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap">
+
+<!--
+  ================================================================
+  DUMNUS HUB — LANDING PAGE
+  ================================================================
+  COMO EDITAR (3 passos):
+
+  1) WHATSAPP — JA CONFIGURADO: 5519991030274 (6 botoes na pagina).
+     Se o numero mudar, use Localizar e Substituir em todo o arquivo.
+
+  2) DADOS PENDENTES — tudo que falta esta marcado com a classe
+     "edit" e aparece destacado em amarelo enquanto a pagina
+     estiver em modo rascunho.
+     Quando terminar de preencher tudo, troque na linha 2:
+        <html lang="pt-BR" data-draft="on">
+     por:
+        <html lang="pt-BR">
+     e os destaques somem.
+
+  3) FOTOS — coloque os 4 arquivos em assets/fotos/ com os nomes:
+       corte-01.jpg  (infantil, degrade alto com estrela)
+       corte-02.jpg  (barba desenhada + topo penteado)
+       corte-03.jpg  (degrade na pele / buzz)
+       corte-04.jpg  (degrade baixo, topo texturizado)
+     Dica: exporte no maximo 1000px de largura e qualidade 80.
+  ================================================================
+-->
+
+<style>
+:root{
+  --preto:#0a0a0b;
+  --carvao:#141417;
+  --carvao-2:#1c1c20;
+  --linha:#2b2b31;
+  --creme:#f4f1ea;
+  --cinza:#a9a49a;
+  --ouro:#c8a24b;
+  --ouro-claro:#e2c478;
+  --vermelho:#b01e28;
+  --azul:#1c3f7c;
+  --radius:14px;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--preto);
+  color:var(--creme);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  overflow-x:hidden;
+  padding-bottom:84px; /* espaco da barra fixa do mobile */
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+
+/* ---------- tipografia ---------- */
+h1,h2,h3,.display{
+  font-family:Oswald,"Arial Narrow",Impact,sans-serif;
+  font-weight:600;
+  letter-spacing:.01em;
+  line-height:1.1;
+  margin:0 0 .5em;
+  text-transform:uppercase;
+}
+h1{font-size:clamp(28px,7.2vw,56px)}
+br.q{display:none}
+@media(min-width:560px){br.q{display:inline}}
+h2{font-size:clamp(25px,5.6vw,40px)}
+h3{font-size:clamp(19px,3.6vw,23px)}
+p{margin:0 0 1em}
+.lead{font-size:clamp(17px,2.4vw,20px);color:#dcd7cc}
+.ouro{color:var(--ouro)}
+small,.mini{font-size:14px;line-height:1.5}
+
+/* ---------- layout ---------- */
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
+section{padding:60px 0}
+.sec-alt{background:var(--carvao)}
+.kicker{
+  font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ouro);margin:0 0 14px;font-weight:600
+}
+.center{text-align:center}
+.rule{height:2px;width:56px;background:var(--ouro);border:0;margin:0 0 22px}
+.center .rule{margin-left:auto;margin-right:auto}
+
+/* ---------- botao / CTA ---------- */
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;max-width:440px;
+  background:linear-gradient(180deg,var(--ouro-claro),var(--ouro));
+  color:#141006;
+  font-family:Oswald,sans-serif;font-size:clamp(16px,4vw,19px);font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
+  padding:18px 22px;border-radius:var(--radius);
+  box-shadow:0 8px 24px rgba(200,162,75,.22);
+  transition:transform .15s ease,box-shadow .15s ease;
+  text-align:center;
+}
+.cta:hover,.cta:focus-visible{transform:translateY(-2px);box-shadow:0 12px 30px rgba(200,162,75,.34)}
+.cta:active{transform:translateY(0)}
+.cta svg{flex:0 0 auto}
+.cta-bloco{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:28px}
+.cta-micro{font-size:14px;color:var(--cinza);text-align:center;max-width:420px;margin:0}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;padding:34px 0 52px;
+  background:
+    radial-gradient(900px 420px at 50% -8%,rgba(200,162,75,.16),transparent 62%),
+    var(--preto);
+  border-bottom:1px solid var(--linha);
+}
+.hero-logo{width:min(290px,72vw);margin:0 auto 24px}
+.hero h1{margin-bottom:18px}
+.hero .lead{max-width:620px;margin-inline:auto}
+.selos{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:26px 0 0;
+  padding:0;list-style:none
+}
+.selos li{
+  font-size:13px;color:#cfc9bd;background:var(--carvao-2);
+  border:1px solid var(--linha);border-radius:999px;padding:7px 14px;
+  display:flex;align-items:center;gap:7px
+}
+.selos li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ouro);flex:0 0 auto}
+
+/* ---------- listas de dor ---------- */
+.dores{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.dores li{
+  background:var(--carvao-2);border:1px solid var(--linha);
+  border-left:3px solid var(--vermelho);
+  border-radius:10px;padding:15px 17px;color:#e6e1d7
+}
+.fecho{
+  margin-top:26px;padding:18px 20px;border-radius:10px;
+  background:rgba(200,162,75,.08);border:1px solid rgba(200,162,75,.3);
+  font-size:17px
+}
+.fecho strong{color:var(--ouro-claro)}
+
+/* ---------- cards ---------- */
+.grid{display:grid;gap:16px}
+@media(min-width:720px){ .grid-3{grid-template-columns:repeat(3,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)} }
+.card{
+  background:var(--carvao-2);border:1px solid var(--linha);
+  border-radius:var(--radius);padding:24px 22px
+}
+.card h3{color:var(--creme);margin-bottom:10px}
+.card p{margin:0;color:#cfc9bd;font-size:16px}
+.card .impacto{
+  margin-top:14px;padding-top:14px;border-top:1px dashed var(--linha);
+  color:var(--ouro-claro);font-size:15px
+}
+.num{
+  font-family:Oswald,sans-serif;font-size:14px;font-weight:700;letter-spacing:.1em;
+  color:var(--ouro);display:block;margin-bottom:8px
+}
+
+/* ---------- passos ---------- */
+.passos{counter-reset:p;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+@media(min-width:720px){.passos{grid-template-columns:repeat(3,1fr)}}
+.passos li{
+  counter-increment:p;position:relative;
+  background:var(--carvao-2);border:1px solid var(--linha);border-radius:var(--radius);
+  padding:26px 20px 22px
+}
+.passos li::before{
+  content:counter(p);font-family:Oswald,sans-serif;font-weight:700;
+  font-size:34px;color:rgba(200,162,75,.32);line-height:1;display:block;margin-bottom:6px
+}
+.passos strong{display:block;font-family:Oswald,sans-serif;text-transform:uppercase;font-size:18px;margin-bottom:6px}
+.passos span{color:#cfc9bd;font-size:16px}
+
+/* ---------- galeria ---------- */
+.galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:760px){.galeria{grid-template-columns:repeat(4,1fr)}}
+.foto{
+  position:relative;aspect-ratio:4/5;border-radius:12px;overflow:hidden;
+  background:var(--carvao-2);border:1px solid var(--linha)
+}
+.foto img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover}
+.foto .vazio{
+  position:absolute;inset:0;z-index:0;display:none;flex-direction:column;align-items:center;
+  justify-content:center;gap:6px;text-align:center;padding:12px;
+  font-size:12px;color:#8e887c;line-height:1.4
+}
+.foto.sem-foto .vazio{display:flex}
+.foto.sem-foto img{display:none}
+.foto .vazio b{font-family:Oswald,sans-serif;color:var(--ouro);font-size:13px;letter-spacing:.08em}
+
+/* ---------- tabela de precos ---------- */
+.menu{display:grid;gap:14px}
+@media(min-width:760px){.menu{grid-template-columns:repeat(3,1fr)}}
+.item{
+  background:var(--carvao-2);border:1px solid var(--linha);border-radius:var(--radius);
+  padding:24px 22px;display:flex;flex-direction:column
+}
+.item.destaque{border-color:var(--ouro);box-shadow:0 0 0 1px rgba(200,162,75,.35) inset}
+.tag{
+  align-self:flex-start;font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;background:var(--ouro);color:#141006;
+  padding:4px 10px;border-radius:999px;margin-bottom:12px;font-weight:700
+}
+.item h3{margin-bottom:8px}
+.item ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:8px}
+.item li{font-size:15px;color:#cfc9bd;padding-left:20px;position:relative}
+.item li::before{
+  content:"";position:absolute;left:0;top:8px;width:9px;height:9px;
+  border-left:2px solid var(--ouro);border-bottom:2px solid var(--ouro);
+  transform:rotate(-45deg)
+}
+.preco{
+  margin-top:auto;font-family:Oswald,sans-serif;font-size:30px;color:var(--creme);
+  line-height:1;display:flex;align-items:baseline;gap:6px
+}
+.preco .cifra{font-size:17px;color:var(--cinza)}
+
+/* ---------- objecoes ---------- */
+.obj{display:grid;gap:14px}
+@media(min-width:760px){.obj{grid-template-columns:repeat(2,1fr)}}
+.obj .card h3{
+  font-size:18px;color:var(--creme);display:flex;gap:9px;align-items:flex-start;line-height:1.3
+}
+.obj .card h3::before{content:"\201C";color:var(--ouro);font-size:34px;line-height:.7;font-family:Georgia,serif}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;gap:10px;max-width:800px;margin:0 auto}
+.faq details{
+  background:var(--carvao-2);border:1px solid var(--linha);border-radius:12px;
+  overflow:hidden
+}
+.faq summary{
+  cursor:pointer;list-style:none;padding:18px 48px 18px 20px;position:relative;
+  font-family:Oswald,sans-serif;font-size:17px;text-transform:none;font-weight:500
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  color:var(--ouro);font-size:24px;line-height:1
+}
+.faq details[open] summary::after{content:"\2013"}
+.faq .resp{padding:0 20px 18px;color:#cfc9bd;font-size:16px;margin:0}
+.faq summary:focus-visible{outline:2px solid var(--ouro);outline-offset:-2px}
+
+/* ---------- autoridade ---------- */
+.autor{
+  background:var(--carvao-2);border:1px solid var(--linha);border-radius:var(--radius);
+  padding:28px 24px;max-width:760px;margin:0 auto
+}
+.autor ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:11px}
+.autor li{padding-left:26px;position:relative;color:#cfc9bd;font-size:16px}
+.autor li::before{
+  content:"";position:absolute;left:0;top:7px;width:10px;height:10px;
+  border-left:2px solid var(--ouro);border-bottom:2px solid var(--ouro);transform:rotate(-45deg)
+}
+
+/* ---------- CTA final ---------- */
+.final{
+  background:
+    radial-gradient(760px 360px at 50% 0%,rgba(200,162,75,.17),transparent 62%),
+    var(--carvao);
+  border-top:1px solid var(--linha)
+}
+.resumo{
+  list-style:none;padding:0;margin:0 auto 6px;max-width:460px;display:grid;gap:9px;text-align:left
+}
+.resumo li{padding-left:26px;position:relative;color:#dcd7cc;font-size:16px}
+.resumo li::before{
+  content:"";position:absolute;left:0;top:7px;width:10px;height:10px;
+  border-left:2px solid var(--ouro);border-bottom:2px solid var(--ouro);transform:rotate(-45deg)
+}
+
+/* ---------- rodape ---------- */
+footer{background:var(--preto);border-top:1px solid var(--linha);padding:38px 0 30px;text-align:center}
+footer .logo-mini{width:150px;margin:0 auto 18px;opacity:.85}
+footer p{color:var(--cinza);font-size:14px;margin:0 0 7px}
+footer a{color:var(--creme);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- barra fixa mobile ---------- */
+.barra{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(10,10,11,.94);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-top:1px solid var(--linha);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  display:flex;justify-content:center
+}
+.barra .cta{padding:15px 18px;font-size:16px;box-shadow:none}
+@media(min-width:821px){
+  .barra{display:none}
+  body{padding-bottom:0}
+}
+
+/* ---------- marcacao de rascunho ---------- */
+html[data-draft="on"] .edit{
+  background:rgba(255,214,0,.18);
+  box-shadow:0 0 0 1px rgba(255,214,0,.55);
+  border-radius:4px;padding:0 3px
+}
+html[data-draft="on"] .so-rascunho{display:block}
+.so-rascunho{display:none}
+.aviso-draft{
+  background:#3a2f06;border-bottom:1px solid #6b5a12;color:#ffd84d;
+  font-size:13px;padding:9px 16px;text-align:center;line-height:1.45
+}
+
+/* telas baixas (iPhone SE antigo, paisagem): comprime o hero
+   para o botao caber na primeira dobra */
+@media(max-height:650px){
+  .hero{padding:18px 0 32px}
+  .hero-logo{width:min(190px,52vw);margin-bottom:14px}
+  .hero h1{font-size:clamp(24px,6.2vw,34px);margin-bottom:12px}
+  .hero .lead{font-size:15px;line-height:1.5}
+  .cta-bloco{margin-top:18px}
+  .selos{margin-top:18px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== AVISO: some sozinho quando voce tirar data-draft="on" do <html> ===== -->
+<div class="aviso-draft so-rascunho">
+  <strong>MODO RASCUNHO.</strong> Os trechos em amarelo precisam dos seus dados reais.
+  Depois de preencher, remova <code>data-draft="on"</code> da tag &lt;html&gt; e este aviso some.
+</div>
+
+<!-- ============================================================
+     SECAO 1 — HERO / PRIMEIRA DOBRA
+     ============================================================ -->
+<header class="hero">
+  <div class="wrap center">
+    <img class="hero-logo" src="assets/logo.png" width="520" height="372"
+         alt="Dumnus Hub Barbearia" fetchpriority="high">
+
+    <h1>Você não pega fila aqui. <br class="q">Chega na hora marcada, <br class="q">senta e <span class="ouro">sai no capricho</span>.</h1>
+
+    <p class="lead">
+      Corte e degradê feitos no detalhe, barba na navalha com toalha quente
+      e o acabamento conferido no espelho antes de você levantar da cadeira.
+      Escolha o seu horário pelo WhatsApp em menos de 1 minuto.
+    </p>
+
+    <div class="cta-bloco">
+      <a class="cta" href="https://wa.me/5519991030274?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Dumnus%20Hub.">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2"/></svg>
+        Agendar meu horário
+      </a>
+      <p class="cta-micro">
+        Abre direto na conversa. Você manda o dia e a hora, a gente confirma.
+        Sem cadastro, sem baixar app.
+      </p>
+    </div>
+
+    <ul class="selos">
+      <li>Hora marcada, um cliente por vez</li>
+      <li>Navalha e toalha quente</li>
+      <li class="edit">Rua Exemplo, 000 &ndash; Bairro</li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============================================================
+     SECAO 2 — IDENTIFICACAO COM A PERSONA
+     ============================================================ -->
+<section class="sec-alt">
+  <div class="wrap">
+    <p class="kicker">Se você já passou por isso</p>
+    <h2>Quantas vezes o “é rapidinho” <br class="q">virou 40 minutos no banco?</h2>
+    <hr class="rule">
+
+    <ul class="dores">
+      <li>Você chega, tem três na frente, e o corte de 30 minutos some com a sua tarde inteira.</li>
+      <li>Pede um degradê, explica direitinho — e em casa percebe que saiu outra coisa.</li>
+      <li>O barbeiro corta olhando a fila, não o seu cabelo. Dá pra sentir a pressa na mão.</li>
+      <li>A barba vai na máquina, correndo, sem toalha quente e sem contorno feito na navalha.</li>
+      <li>Em dez dias o corte já perdeu a forma e você volta antes do que devia.</li>
+      <li>E toda vez tem que explicar tudo de novo, do zero, pra alguém diferente.</li>
+    </ul>
+
+    <p class="fecho">
+      Isso não é frescura. <strong>É o seu tempo e é a sua cara</strong> — as duas coisas
+      que você carrega todo dia e que ninguém devolve depois.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECAO 3 — APRESENTACAO DA SOLUCAO
+     ============================================================ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">O jeito Dumnus Hub</p>
+    <h2>Barbearia do jeito antigo, <br class="q">com acabamento de hoje.</h2>
+    <hr class="rule">
+
+    <p class="lead">
+      A gente trabalha com hora marcada e um cliente por vez. Sem fila, sem pressa,
+      sem dividir a atenção. O cuidado é o da barbearia tradicional — navalha na mão,
+      toalha quente, contorno feito no detalhe. O resultado é o degradê e a barba
+      desenhada que você vê nas fotos aqui embaixo.
+    </p>
+
+    <div class="grid grid-2" style="margin-top:28px">
+      <div class="card">
+        <span class="num">ANTES DA TESOURA</span>
+        <h3>A gente combina o corte</h3>
+        <p>
+          Dois minutos de conversa antes de começar: o que você quer, o que já deu errado
+          antes e o que funciona no seu tipo de cabelo. É aqui que a maioria dos cortes
+          ruins é evitada.
+        </p>
+      </div>
+      <div class="card">
+        <span class="num">ANTES DE VOCÊ LEVANTAR</span>
+        <h3>A gente confere no espelho</h3>
+        <p>
+          Nuca, costeleta, contorno e desenho da barba são revisados com você olhando.
+          Se tiver algo pra ajustar, ajusta na hora — não quando você já está na rua.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECAO 4 — BENEFICIOS
+     ============================================================ -->
+<section class="sec-alt">
+  <div class="wrap">
+    <p class="kicker">O que isso muda pra você</p>
+    <h2>Não é só um corte. <br class="q">É tempo e previsibilidade.</h2>
+    <hr class="rule">
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Sua tarde continua sua</h3>
+        <p>
+          Com hora marcada, você sabe a que horas entra e a que horas sai.
+          Dá pra encaixar entre o trabalho e o resto do dia.
+        </p>
+        <p class="impacto">Você para de perder meio sábado sentado esperando.</p>
+      </div>
+      <div class="card">
+        <h3>Você sai com o corte que pediu</h3>
+        <p>
+          A conversa antes e a conferência no espelho depois existem exatamente
+          pra eliminar a surpresa ruim.
+        </p>
+        <p class="impacto">Você se olha no espelho e gosta — hoje e na foto de amanhã.</p>
+      </div>
+      <div class="card">
+        <h3>A forma dura mais</h3>
+        <p>
+          Degradê bem puxado e contorno feito na navalha crescem de forma mais
+          limpa do que um acabamento feito às pressas.
+        </p>
+        <p class="impacto">Mais dias com o visual em pé entre uma visita e outra.</p>
+      </div>
+      <div class="card">
+        <h3>A barba sai desenhada</h3>
+        <p>
+          Toalha quente pra abrir a pele, navalha pro contorno e simetria conferida
+          nos dois lados do rosto.
+        </p>
+        <p class="impacto">Barba com forma definida, não só “aparada”.</p>
+      </div>
+      <div class="card">
+        <h3>Ninguém corre com você</h3>
+        <p>
+          Um cliente por vez significa que o barbeiro está olhando pro seu cabelo,
+          e não pra quem está esperando na porta.
+        </p>
+        <p class="impacto">Aquele tempo do dia que é só seu, sem ninguém te apressando.</p>
+      </div>
+      <div class="card">
+        <h3>Agendar leva um minuto</h3>
+        <p>
+          É pelo WhatsApp, na conversa que você já usa o dia todo.
+          Sem cadastro, sem senha, sem instalar nada.
+        </p>
+        <p class="impacto">Você resolve agora, do jeito mais fácil, e esquece.</p>
+      </div>
+    </div>
+
+    <div class="cta-bloco">
+      <a class="cta" href="https://wa.me/5519991030274?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Dumnus%20Hub.">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2"/></svg>
+        Agendar meu horário
+      </a>
+      <p class="cta-micro">Você escolhe o dia e a hora. Leva menos de 1 minuto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECAO 5 — COMO FUNCIONA
+     ============================================================ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Simples assim</p>
+    <h2>Três passos até a cadeira</h2>
+    <hr class="rule">
+
+    <ol class="passos">
+      <li>
+        <strong>Chama no WhatsApp</strong>
+        <span>Toca no botão. A conversa já abre com a mensagem pronta — você só envia.</span>
+      </li>
+      <li>
+        <strong>Escolhe dia e hora</strong>
+        <span>A gente responde com os horários livres. Você escolhe o que couber na sua rotina.</span>
+      </li>
+      <li>
+        <strong>Chega e senta</strong>
+        <span>No horário combinado a cadeira está esperando por você. Sem fila, sem espera.</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECAO 6 — PROVA SOCIAL (fotos reais do trabalho)
+     ============================================================ -->
+<section class="sec-alt">
+  <div class="wrap">
+    <p class="kicker">Trabalho feito aqui</p>
+    <h2>O acabamento fala <br class="q">mais alto que a propaganda</h2>
+    <hr class="rule">
+    <p class="lead" style="margin-bottom:26px">
+      Degradê, barba desenhada e detalhe na navalha. Todos os cortes abaixo
+      foram feitos na cadeira da Dumnus Hub.
+    </p>
+
+    <div class="galeria">
+      <!-- Coloque os arquivos em assets/fotos/ com estes nomes e os placeholders somem -->
+      <figure class="foto" style="margin:0">
+        <img src="assets/fotos/corte-01.jpg" alt="Degradê alto infantil com desenho de estrelas" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="vazio"><b>FOTO 01</b>corte-01.jpg<br>(infantil, degradê alto com estrela)</figcaption>
+      </figure>
+      <figure class="foto" style="margin:0">
+        <img src="assets/fotos/corte-02.jpg" alt="Barba cheia desenhada com degradê nas laterais e topo penteado" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="vazio"><b>FOTO 02</b>corte-02.jpg<br>(barba desenhada + topo penteado)</figcaption>
+      </figure>
+      <figure class="foto" style="margin:0">
+        <img src="assets/fotos/corte-03.jpg" alt="Degradê na pele com acabamento limpo na nuca" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="vazio"><b>FOTO 03</b>corte-03.jpg<br>(degradê na pele / buzz)</figcaption>
+      </figure>
+      <figure class="foto" style="margin:0">
+        <img src="assets/fotos/corte-04.jpg" alt="Degradê baixo com topo texturizado penteado para trás" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="vazio"><b>FOTO 04</b>corte-04.jpg<br>(degradê baixo, topo texturizado)</figcaption>
+      </figure>
+    </div>
+
+    <!-- ========================================================
+         AVALIACOES — bloco preparado e VAZIO de proposito.
+         Nao inventei nenhum depoimento. Quando tiver avaliacoes
+         reais (Google, Instagram ou printa do WhatsApp), apague
+         o paragrafo .so-rascunho abaixo e descomente os cards.
+         ======================================================== -->
+    <p class="so-rascunho edit" style="margin-top:26px;font-size:15px">
+      ESPAÇO RESERVADO PARA DEPOIMENTOS REAIS — não escrevi nenhum porque você ainda
+      não tem avaliações confirmadas. Assim que tiver (Google, Instagram ou print do
+      WhatsApp), me mande que eu encaixo aqui. Esta é a prova social que mais pesa
+      para barbearia, depois das fotos.
+    </p>
+
+    <!--
+    <div class="grid grid-3" style="margin-top:26px">
+      <blockquote class="card" style="margin:0">
+        <p>"TEXTO REAL DO CLIENTE AQUI."</p>
+        <p class="impacto">NOME DO CLIENTE &mdash; cliente desde ANO</p>
+      </blockquote>
+    </div>
+    -->
+  </div>
+</section>
+
+<!-- ============================================================
+     SECAO 7 — AUTORIDADE
+     ============================================================ -->
+<section>
+  <div class="wrap center">
+    <p class="kicker">Quem vai cortar</p>
+    <h2>Por que confiar sua cabeça aqui</h2>
+    <hr class="rule">
+
+    <div class="autor" style="text-align:left">
+      <p style="margin-bottom:0">
+        <span class="edit">PREENCHA AQUI: nome do barbeiro responsável, há quantos anos corta,
+        onde se formou ou com quem aprendeu, e uma frase sobre o jeito dele de trabalhar.
+        Eu não escrevi nada inventado — este bloco só vai pro ar com informação verdadeira sua.</span>
+      </p>
+      <ul>
+        <li>Atendimento por agendamento, um cliente por vez.</li>
+        <li>Corte, degradê e barba na navalha com toalha quente.</li>
+        <li class="edit">PREENCHA: anos de atuação / nº de clientes atendidos (só se o número for real).</li>
+        <li class="edit">PREENCHA: cursos, certificações ou especializações, se houver.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECAO 8 — OFERTA / SERVICOS
+     ============================================================ -->
+<section class="sec-alt">
+  <div class="wrap">
+    <p class="kicker">Serviços e valores</p>
+    <h2>Preço na mesa, sem surpresa no caixa</h2>
+    <hr class="rule">
+
+    <div class="menu">
+      <div class="item destaque">
+        <span class="tag">Mais pedido</span>
+        <h3>Corte + Barba</h3>
+        <ul>
+          <li>Corte completo com degradê e acabamento</li>
+          <li>Barba com toalha quente e navalha</li>
+          <li>Contorno e simetria conferidos no espelho</li>
+          <li>Hora marcada, sem fila</li>
+        </ul>
+        <p class="preco"><span class="cifra">R$</span><span class="edit">--</span></p>
+      </div>
+
+      <div class="item">
+        <h3>Corte / Degradê</h3>
+        <ul>
+          <li>Corte masculino, degradê ou social</li>
+          <li>Acabamento de nuca e costeleta na navalha</li>
+          <li>Conversa de estilo antes de começar</li>
+        </ul>
+        <p class="preco"><span class="cifra">R$</span><span class="edit">--</span></p>
+      </div>
+
+      <div class="item">
+        <h3>Barba na navalha</h3>
+        <ul>
+          <li>Toalha quente para abrir a pele</li>
+          <li>Navalha no contorno e no desenho</li>
+          <li>Finalização e hidratação</li>
+        </ul>
+        <p class="preco"><span class="cifra">R$</span><span class="edit">--</span></p>
+      </div>
+    </div>
+
+    <p class="mini" style="margin-top:18px;color:var(--cinza)">
+      Formas de pagamento: <span class="edit">PREENCHA (dinheiro, Pix, débito, crédito...)</span>
+    </p>
+
+    <div class="cta-bloco">
+      <a class="cta" href="https://wa.me/5519991030274?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Dumnus%20Hub.">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2"/></svg>
+        Agendar meu horário
+      </a>
+      <p class="cta-micro">Dúvida no valor? Pergunte na conversa antes de fechar o horário.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECAO 9 — QUEBRA DE OBJECOES
+     ============================================================ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">O que costuma travar</p>
+    <h2>As dúvidas que você <br class="q">provavelmente está tendo agora</h2>
+    <hr class="rule">
+
+    <div class="obj">
+      <div class="card">
+        <h3>E se eu não gostar do corte?</h3>
+        <p>
+          Por isso a conversa vem antes da tesoura e a conferência vem antes de você levantar.
+          Se tiver algo fora do lugar, fala ali mesmo e a gente acerta na hora — com você
+          na cadeira, não depois que já foi embora.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Nunca fui aí, vou ser bem atendido?</h3>
+        <p>
+          Cliente novo entra do mesmo jeito: hora marcada e um por vez. As fotos aqui em cima
+          são de trabalho feito nesta cadeira — olhe o acabamento da nuca e do contorno
+          antes de decidir.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Não tenho horário na semana.</h3>
+        <p>
+          Mande no WhatsApp o dia e a faixa de horário que funcionam pra você.
+          A gente responde com o que está livre nesse intervalo
+          <span class="edit">— incluindo PREENCHA: sábados / horário estendido, se houver</span>.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Vou ter que esperar mesmo com hora marcada?</h3>
+        <p>
+          O agendamento existe justamente pra isso não acontecer. É um cliente por vez,
+          com tempo reservado para o seu serviço.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Quanto custa? Não quero surpresa.</h3>
+        <p>
+          Os valores estão na tabela aqui em cima, antes de você agendar. O que você viu
+          é o que paga — e qualquer serviço extra é combinado com você antes de ser feito.
+        </p>
+      </div>
+      <div class="card">
+        <h3>É só corte ou faz barba também?</h3>
+        <p>
+          Corte, degradê e barba na navalha com toalha quente. O combo corte + barba
+          é o serviço mais pedido e resolve tudo numa visita só.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================
+  SECAO 10 — GARANTIA (DESATIVADA DE PROPOSITO)
+  ============================================================
+  Voce nao informou nenhuma garantia, entao eu NAO inventei nenhuma.
+  Se voce quiser oferecer uma (e em barbearia isso derruba muito a
+  objecao do "e se eu nao gostar"), o bloco pronto esta abaixo.
+  Para ativar: apague estas linhas de comentario, confirme o prazo
+  e troque o texto marcado.
+
+<section class="sec-alt">
+  <div class="wrap center">
+    <p class="kicker">Nosso compromisso</p>
+    <h2>Ajuste gratuito em ATE X DIAS</h2>
+    <hr class="rule">
+    <div class="autor" style="text-align:left">
+      <p>
+        Se dentro de X DIAS depois do corte algum detalhe nao ficou do jeito que voce
+        combinou, volte e a gente ajusta sem cobrar nada. Basta chamar no WhatsApp
+        e marcar o retorno.
+      </p>
+      <ul>
+        <li>Vale para CORTE / BARBA / AMBOS (escolha).</li>
+        <li>Prazo: X dias corridos a partir do atendimento.</li>
+        <li>Como usar: chamar no WhatsApp e agendar o retorno.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- ============================================================
+     SECAO 11 — FAQ
+     ============================================================ -->
+<section class="sec-alt">
+  <div class="wrap">
+    <p class="kicker">Perguntas frequentes</p>
+    <h2 class="center">Antes de você chamar <br class="q">no WhatsApp</h2>
+    <hr class="rule" style="margin-left:auto;margin-right:auto">
+
+    <div class="faq">
+      <details>
+        <summary>Preciso agendar ou posso chegar e esperar?</summary>
+        <p class="resp">
+          O atendimento é por hora marcada, justamente pra ninguém ficar esperando.
+          Chame no WhatsApp e já saia com o seu horário confirmado.
+        </p>
+      </details>
+
+      <details>
+        <summary>Quanto tempo demora o atendimento?</summary>
+        <p class="resp edit">
+          PREENCHA: tempo médio do corte e tempo médio do combo corte + barba.
+          (Não coloquei número porque não sei o seu — e número errado aqui gera atraso e cliente irritado.)
+        </p>
+      </details>
+
+      <details>
+        <summary>Onde fica e qual o horário de funcionamento?</summary>
+        <p class="resp edit">
+          PREENCHA: endereço completo, ponto de referência, se tem estacionamento
+          e os dias e horários de funcionamento.
+        </p>
+      </details>
+
+      <details>
+        <summary>Quais formas de pagamento vocês aceitam?</summary>
+        <p class="resp edit">
+          PREENCHA: dinheiro, Pix, cartão de débito, crédito, parcelamento.
+        </p>
+      </details>
+
+      <details>
+        <summary>Atendem criança?</summary>
+        <p class="resp edit">
+          PREENCHA: sim ou não, a partir de que idade e se o valor é diferente.
+          (Uma das fotos da página é de corte infantil, então vale deixar isso claro aqui.)
+        </p>
+      </details>
+
+      <details>
+        <summary>Vocês fazem degradê na pele e desenho?</summary>
+        <p class="resp">
+          Fazemos. Degradê na pele, contorno na navalha e desenho são parte do trabalho —
+          as fotos aqui na página são exemplos reais feitos na cadeira.
+        </p>
+      </details>
+
+      <details>
+        <summary>E se eu precisar remarcar ou cancelar?</summary>
+        <p class="resp">
+          Basta avisar no mesmo WhatsApp em que você agendou, de preferência com
+          antecedência, e a gente remarca pro próximo horário que servir pra você.
+        </p>
+      </details>
+
+      <details>
+        <summary>Faz barba só, sem cortar o cabelo?</summary>
+        <p class="resp">
+          Faz. A barba na navalha com toalha quente é um serviço avulso e tem
+          horário próprio na agenda.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECAO 12 — CTA FINAL
+     ============================================================ -->
+<section class="final">
+  <div class="wrap center">
+    <p class="kicker">Último passo</p>
+    <h2>Seu próximo corte pode ser <br class="q">sem fila e <span class="ouro">sem surpresa</span>.</h2>
+    <hr class="rule" style="margin-left:auto;margin-right:auto">
+
+    <ul class="resumo">
+      <li>Hora marcada, um cliente por vez</li>
+      <li>Corte e degradê com acabamento na navalha</li>
+      <li>Barba com toalha quente e contorno desenhado</li>
+      <li>Conferência no espelho antes de você levantar</li>
+      <li>Preço combinado antes, sem surpresa no caixa</li>
+    </ul>
+
+    <div class="cta-bloco">
+      <a class="cta" href="https://wa.me/5519991030274?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Dumnus%20Hub.">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2"/></svg>
+        Agendar meu horário
+      </a>
+      <p class="cta-micro">
+        Abre direto no WhatsApp com a mensagem pronta. Você só envia e escolhe o horário.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="logo-mini" src="assets/logo.png" width="520" height="372" alt="Dumnus Hub" loading="lazy">
+    <p class="edit">Rua Exemplo, 000 &ndash; Bairro, Cidade/UF</p>
+    <p class="edit">Seg a Sáb, 00h às 00h</p>
+    <p><a href="https://wa.me/5519991030274?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Dumnus%20Hub.">Agendar pelo WhatsApp</a></p>
+    <p style="margin-top:16px;opacity:.6">&copy; Dumnus Hub. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- barra fixa de CTA no mobile -->
+<div class="barra">
+  <a class="cta" href="https://wa.me/5519991030274?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Dumnus%20Hub.">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2"/></svg>
+    Agendar meu horário
+  </a>
+</div>
+
+<!--
+  ============================================================
+  SEO LOCAL (JSON-LD) — DESATIVADO ATE TER DADOS REAIS
+  ============================================================
+  Isso ajuda a barbearia a aparecer melhor na busca do Google.
+  Preencha os campos e remova as linhas de comentario em volta.
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HairSalon",
+  "name":"Dumnus Hub",
+  "image":"assets/logo-512.jpg",
+  "telephone":"+5519991030274",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"RUA E NUMERO",
+    "addressLocality":"CIDADE",
+    "addressRegion":"UF",
+    "postalCode":"00000-000",
+    "addressCountry":"BR"
+  },
+  "openingHours":"Mo-Sa 00:00-00:00",
+  "priceRange":"$$"
+}
+</script>
+-->
+
+</body>
+</html>
