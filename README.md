@@ -101,3 +101,47 @@ Assim que você tiver avaliações reais (Google, Instagram ou print do WhatsApp
 | `assets/logo.png` | logo usada na página (fundo transparente, 28 KB) |
 | `assets/logo-512.jpg` | ícone da aba e imagem de compartilhamento no WhatsApp/redes |
 | `assets/logo.jpg` | original enviado, guardado como referência (não é usado na página) |
+
+---
+
+## Subir na Vercel
+
+O site é estático, sem build. A Vercel serve a pasta direto.
+
+### 1. Importe o repositório
+
+Entre em **https://vercel.com/new**, conecte sua conta do GitHub e escolha o
+repositório `manovares/dummnus`.
+
+Na tela de configuração, deixe tudo como vem:
+
+| Campo | Valor |
+|---|---|
+| Framework Preset | **Other** |
+| Build Command | *(vazio)* |
+| Output Directory | *(vazio — a raiz)* |
+| Install Command | *(vazio)* |
+
+Clique em **Deploy**. Em menos de um minuto o site está no ar.
+
+### 2. Aponte para a branch certa
+
+O código está na branch `claude/peaceful-fermi-imcsp5`, e a Vercel publica a
+branch de produção (por padrão `main`, que este repositório ainda não tem).
+
+Em **Settings → Git → Production Branch**, troque para
+`claude/peaceful-fermi-imcsp5` e salve. A partir daí, todo push nessa branch
+republica o site sozinho.
+
+### 3. Domínio
+
+A Vercel dá um endereço `.vercel.app` de graça, que já serve para anunciar.
+Para usar um domínio próprio (ex: `dumnushub.com.br`), compre o domínio e
+aponte em **Settings → Domains**; a Vercel mostra os registros de DNS a criar
+e emite o certificado HTTPS sozinha.
+
+### Antes de divulgar o link
+
+Desligue o modo rascunho (`data-draft="on"`, explicado acima) e confira que
+nenhum trecho amarelo ficou na página. Enquanto houver `R$ --` e textos
+começando com `PREENCHA`, qualquer visitante os enxerga.
