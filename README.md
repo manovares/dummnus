@@ -15,11 +15,17 @@ para o mesmo lugar: `wa.me/5519991030274`.
 A página está em **modo rascunho**: tudo que precisa do seu dado real aparece
 **destacado em amarelo** na tela. Não inventei nenhuma informação.
 
-### ~~1. As 4 fotos dos cortes~~ ✅ feito
+### ~~1. Fotos e vídeos~~ ✅ feito
 
-As quatro fotos já estão em `assets/fotos/`, em 800×1000 (proporção 4:5),
-cerca de 120 KB cada, e só carregam quando o visitante rola até a galeria.
-Para trocar alguma, exporte no mesmo formato e mantenha o nome do arquivo.
+**8 fotos** em `assets/fotos/` (800×1000, ~110 KB cada) e **14 clipes** em
+`assets/videos/` (640px no lado maior, H.264 perfil Main, ~270 KB cada),
+cada um com a sua imagem de capa.
+
+As fotos carregam quando o visitante rola até a galeria. Os clipes só baixam
+quando alguém toca no play — abrir a página não puxa nenhum vídeo.
+
+Para trocar algum arquivo, mantenha o nome e a proporção (4:5 nas fotos,
+3:4 nos clipes).
 
 ### 2. Os preços
 

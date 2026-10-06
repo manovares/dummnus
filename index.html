@@ -387,6 +387,48 @@ html[data-draft="on"] .so-rascunho{display:block}
 @media(max-width:480px){.rotulo{font-size:11px;letter-spacing:.03em}}
 .foto.sem-foto .rotulo{display:none}
 
+
+/* ---------- carrossel de clipes ---------- */
+.trilho{
+  display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  padding:2px 2px 14px;scrollbar-width:thin;
+  scrollbar-color:var(--ouro) var(--carvao-2)
+}
+.trilho::-webkit-scrollbar{height:7px}
+.trilho::-webkit-scrollbar-track{background:var(--carvao-2);border-radius:99px}
+.trilho::-webkit-scrollbar-thumb{background:var(--ouro);border-radius:99px}
+.clipe{
+  flex:0 0 auto;width:min(64vw,230px);margin:0;scroll-snap-align:center;
+  border-radius:12px;overflow:hidden;background:#000;
+  border:1px solid var(--linha);box-shadow:0 0 0 1px rgba(200,162,75,.28) inset
+}
+.clipe{position:relative;cursor:pointer}
+.clipe video{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;background:#000}
+.play{
+  position:absolute;inset:0;margin:auto;width:56px;height:56px;
+  display:grid;place-items:center;
+  border:0;border-radius:50%;cursor:pointer;
+  background:rgba(10,10,11,.6);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+  box-shadow:0 0 0 2px var(--ouro) inset;
+  transition:opacity .18s ease,transform .18s ease
+}
+.play::before{
+  content:"";width:0;height:0;margin-left:4px;
+  border-left:17px solid var(--ouro);
+  border-top:11px solid transparent;border-bottom:11px solid transparent
+}
+.clipe:hover .play{transform:scale(1.07)}
+.clipe.tocando .play{opacity:0;pointer-events:none}
+.clipe.tocando .play:focus-visible{opacity:1;pointer-events:auto}
+.play:focus-visible{outline:3px solid var(--creme);outline-offset:3px}
+.dica-trilho{
+  display:flex;align-items:center;gap:8px;margin:0;
+  font-size:14px;color:var(--cinza)
+}
+.dica-trilho::after{content:"→";color:var(--ouro);font-size:17px}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{transition:none!important;animation:none!important}
@@ -473,6 +515,7 @@ html[data-draft="on"] .so-rascunho{display:block}
     <ul class="selos">
       <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-relogio"/></svg>Hora marcada, um cliente por vez</li>
       <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-navalha"/></svg>Navalha e toalha quente</li>
+      <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-pente"/></svg>Liso, cacheado e crespo</li>
       <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-poste"/></svg>Jd. Maria Antônia, Sumaré/SP</li>
     </ul>
   </div>
@@ -510,8 +553,16 @@ html[data-draft="on"] .so-rascunho{display:block}
         <p>Você sabe a que horas entra e a que horas sai.</p>
       </div>
       <div class="card">
-        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-espelho"/></svg><h3>Corte combinado antes</h3></div>
-        <p>A gente alinha o corte antes de começar e confere no espelho antes de você levantar.</p>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-espelho"/></svg><h3>Visagismo</h3></div>
+        <p>Antes da tesoura, a gente olha o formato do seu rosto pra indicar o corte que mais combina com você.</p>
+      </div>
+      <div class="card">
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-pente"/></svg><h3>Liso, cacheado ou crespo</h3></div>
+        <p>Cada tipo de cabelo pede uma técnica diferente. Aqui atende os três.</p>
+      </div>
+      <div class="card">
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-tesoura"/></svg><h3>Social na tesoura</h3></div>
+        <p>Corte clássico feito na tesoura, não só na máquina.</p>
       </div>
       <div class="card">
         <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-navalha"/></svg><h3>Barba na navalha</h3></div>
@@ -556,6 +607,7 @@ html[data-draft="on"] .so-rascunho{display:block}
     <p class="kicker">Trabalho feito aqui</p>
     <h2>O trabalho fala por si</h2>
     <hr class="rule">
+    <p class="mini" style="color:var(--cinza);margin-bottom:20px">Liso, cacheado ou crespo &mdash; cada um pede uma técnica diferente.</p>
     <div class="galeria">
       <!-- Coloque os arquivos em assets/fotos/ com estes nomes e os placeholders somem -->
       <figure class="foto" style="margin:0">
@@ -575,8 +627,28 @@ html[data-draft="on"] .so-rascunho{display:block}
       </figure>
       <figure class="foto" style="margin:0">
         <img src="assets/fotos/corte-04.jpg" alt="Degradê baixo com topo texturizado penteado para trás" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
-        <figcaption class="rotulo">Degradê baixo</figcaption>
+        <figcaption class="rotulo">Liso texturizado</figcaption>
         <div class="vazio"><b>FOTO 04</b>corte-04.jpg<br>(degradê baixo, topo texturizado)</div>
+      </figure>
+      <figure class="foto" style="margin:0">
+        <img src="assets/fotos/corte-05.jpg" alt="Corte em cabelo crespo com degradê nas laterais" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="rotulo">Crespo</figcaption>
+        <div class="vazio"><b>FOTO 05</b>corte-05.jpg</div>
+      </figure>
+      <figure class="foto" style="margin:0">
+        <img src="assets/fotos/corte-06.jpg" alt="Corte em cabelo crespo com barba cheia desenhada" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="rotulo">Crespo + barba</figcaption>
+        <div class="vazio"><b>FOTO 06</b>corte-06.jpg</div>
+      </figure>
+      <figure class="foto" style="margin:0">
+        <img src="assets/fotos/corte-07.jpg" alt="Corte em cabelo cacheado loiro com degradê na pele" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="rotulo">Cacheado</figcaption>
+        <div class="vazio"><b>FOTO 07</b>corte-07.jpg</div>
+      </figure>
+      <figure class="foto" style="margin:0">
+        <img src="assets/fotos/corte-08.jpg" alt="Corte em cabelo crespo volumoso com degradê" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="rotulo">Crespo com volume</figcaption>
+        <div class="vazio"><b>FOTO 08</b>corte-08.jpg</div>
       </figure>
     </div>
 
@@ -601,10 +673,97 @@ html[data-draft="on"] .so-rascunho{display:block}
   </div>
 </section>
 
+<div class="listras"></div>
+
+<!-- ============================================================
+     SECAO 6B — CLIPES (os 14 videos, carregam so ao tocar)
+     ============================================================ -->
+<section class="sec-alt">
+  <div class="wrap">
+    <p class="kicker">Em movimento</p>
+    <h2>Veja o acabamento de perto</h2>
+    <hr class="rule">
+    <p class="dica-trilho">Arraste para o lado</p>
+
+    <div class="trilho">
+        <figure class="clipe">
+          <video src="assets/videos/clipe-01.mp4" poster="assets/videos/poster-01.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 1 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-02.mp4" poster="assets/videos/poster-02.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 2 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-03.mp4" poster="assets/videos/poster-03.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 3 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-04.mp4" poster="assets/videos/poster-04.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 4 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-05.mp4" poster="assets/videos/poster-05.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 5 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-06.mp4" poster="assets/videos/poster-06.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 6 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-07.mp4" poster="assets/videos/poster-07.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 7 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-08.mp4" poster="assets/videos/poster-08.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 8 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-09.mp4" poster="assets/videos/poster-09.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 9 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-10.mp4" poster="assets/videos/poster-10.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 10 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-11.mp4" poster="assets/videos/poster-11.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 11 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-12.mp4" poster="assets/videos/poster-12.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 12 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-13.mp4" poster="assets/videos/poster-13.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 13 de 14"></button>
+        </figure>
+        <figure class="clipe">
+          <video src="assets/videos/clipe-14.mp4" poster="assets/videos/poster-14.jpg"
+                 preload="none" playsinline loop muted></video>
+          <button class="play" type="button" aria-label="Tocar o clipe 14 de 14"></button>
+        </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============================================================
      SECAO 7 — AUTORIDADE
      ============================================================ -->
-<section class="sec-alt">
+<section>
   <div class="wrap center">
     <p class="kicker">Sobre</p>
     <h2>Quem corta</h2>
@@ -634,7 +793,7 @@ html[data-draft="on"] .so-rascunho{display:block}
         <span class="tag">Mais pedido</span>
         <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-poste"/></svg><h3>Corte + Barba</h3></div>
         <ul>
-          <li>Corte completo com degradê</li>
+          <li>Corte completo, com visagismo</li>
           <li>Barba com toalha quente e navalha</li>
         </ul>
         <p class="preco"><span class="cifra">R$</span><span class="edit">--</span></p>
@@ -643,7 +802,7 @@ html[data-draft="on"] .so-rascunho{display:block}
       <div class="item">
         <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-tesoura"/></svg><h3>Corte / Degradê</h3></div>
         <ul>
-          <li>Degradê, social ou na máquina</li>
+          <li>Degradê, social na tesoura ou máquina</li>
           <li>Nuca e costeleta na navalha</li>
         </ul>
         <p class="preco"><span class="cifra">R$</span><span class="edit">--</span></p>
@@ -804,6 +963,28 @@ html[data-draft="on"] .so-rascunho{display:block}
   "areaServed":"Sumaré e região",
   "hasMap":"https://www.google.com/maps/search/?api=1&query=Rua+Regina+Consulin+Escalh%C3%A3o%2C+1021%2C+Sumar%C3%A9+-+SP"
 }
+</script>
+
+
+<script>
+// clipes do carrossel: toca um de cada vez, carrega so quando o visitante pede
+document.querySelectorAll('.clipe').forEach(function (cartao) {
+  var video = cartao.querySelector('video');
+  cartao.addEventListener('click', function () {
+    if (video.paused) {
+      document.querySelectorAll('.clipe video').forEach(function (outro) {
+        if (outro !== video) outro.pause();
+      });
+      video.play().then(function () {
+        cartao.classList.add('tocando');
+      }).catch(function () {});
+    } else {
+      video.pause();
+    }
+  });
+  video.addEventListener('pause', function () { cartao.classList.remove('tocando'); });
+  video.addEventListener('ended', function () { cartao.classList.remove('tocando'); });
+});
 </script>
 
 </body>
