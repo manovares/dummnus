@@ -27,34 +27,20 @@ quando alguém toca no play — abrir a página não puxa nenhum vídeo.
 Para trocar algum arquivo, mantenha o nome e a proporção (4:5 nas fotos,
 3:4 nos clipes).
 
-### 2. Os preços
+### ~~2. Os preços~~ ✅ feito
 
-Procure por `R$` na seção de serviços e troque os `--` pelos valores dos três
-serviços: Corte + Barba, Corte/Degradê e Barba na navalha.
+Corte a partir de R$ 29,99 · Barba R$ 19,99 · Alisamento R$ 24,99 ·
+Acabamento (pezinho) R$ 14,99 · Sobrancelha cortesia.
 
-### 3. Horários e dados do atendimento
+### 3. O que ainda falta
 
-O **endereço já está preenchido**: Rua Regina Consulin Escalhão, 1021 —
-Jd. Maria Antônia, Sumaré/SP (CEP 13178-380). Aparece no topo, no rodapé,
-na FAQ e nos dados de SEO local, com link para o mapa.
-
-Ainda faltam, todos destacados em amarelo:
-
-- dias e horários de funcionamento
-- formas de pagamento
-- tempo médio de atendimento (FAQ)
+- formas de pagamento (aparece na tabela de preços e na FAQ)
+- tempo médio do corte e da barba (FAQ)
 - se atende criança e a partir de que idade (FAQ)
-- se tem sábado ou horário estendido (quebra de objeções)
-- se tem estacionamento por perto (FAQ)
+- seu nome e tempo de barbearia (bloco "Quem corta")
 
-Ao preencher os horários, abra também a linha `openingHours` no bloco de
-SEO local, no fim do `index.html`, no formato 24h (ex: `"Tu-Sa 09:00-19:00"`).
-
-### 4. O bloco "Por que confiar sua cabeça aqui"
-
-Seu nome, há quantos anos corta, com quem aprendeu e o jeito de trabalhar.
-**Deixei em branco de propósito** — autoridade inventada é a forma mais rápida
-de perder a confiança de um cliente local, que cedo ou tarde te encontra pessoalmente.
+O **endereço** e os **horários** já estão preenchidos em todos os lugares:
+topo, rodapé, FAQ e dados de SEO local.
 
 ---
 

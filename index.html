@@ -213,7 +213,24 @@ section{padding:60px 0}
 
 /* ---------- tabela de precos ---------- */
 .menu{display:grid;gap:14px}
-@media(min-width:760px){.menu{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:380px){.menu{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.menu{grid-template-columns:repeat(4,1fr)}}
+/* duas colunas no celular: card mais compacto para o texto continuar legivel */
+@media(max-width:620px){
+  /* o icone sai de ao lado do titulo: nomes de uma palavra so ("ALISAMENTO")
+     disputavam a linha com ele e forcavam a coluna a ficar mais larga que o grid */
+  .menu .ico-cabec{flex-direction:column;align-items:flex-start;gap:7px}
+  .menu .item{padding:17px 14px;min-width:0}
+  .menu .item h3{overflow-wrap:anywhere}
+  .menu .item li{font-size:13.5px;padding-left:16px}
+  .menu .item li::before{width:7px;height:7px;top:7px}
+  .menu .item ul{gap:6px;margin-bottom:14px}
+  .menu .item h3{font-size:17px}
+  .menu .ico-cabec{gap:8px;margin-bottom:8px}
+  .menu .ico{width:22px;height:22px}
+  .preco{font-size:25px}
+  .tag{font-size:10px;padding:3px 8px;margin-bottom:9px}
+}
 .item{
   background:var(--carvao-2);border:1px solid var(--linha);border-radius:var(--radius);
   padding:24px 22px;display:flex;flex-direction:column
@@ -233,9 +250,20 @@ section{padding:60px 0}
   transform:rotate(-45deg)
 }
 .preco{
-  margin-top:auto;font-family:Oswald,sans-serif;font-size:30px;color:var(--creme);
-  line-height:1;display:flex;align-items:baseline;gap:6px
+  margin-top:auto;font-family:Oswald,sans-serif;font-size:29px;color:var(--creme);
+  line-height:1;display:flex;align-items:baseline;gap:5px;flex-wrap:wrap
 }
+.antes{
+  display:block;width:100%;font-family:-apple-system,system-ui,sans-serif;
+  font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--cinza);margin-bottom:5px
+}
+.cortesia{
+  margin-top:16px;padding:15px 18px;border-radius:12px;
+  background:rgba(200,162,75,.1);border:1px solid rgba(200,162,75,.42);
+  display:flex;align-items:center;gap:11px;font-size:16px;color:#efe7d4
+}
+.cortesia strong{color:var(--ouro-claro)}
 .preco .cifra{font-size:17px;color:var(--cinza)}
 
 /* ---------- objecoes ---------- */
@@ -513,7 +541,7 @@ html[data-draft="on"] .so-rascunho{display:block}
     </div>
 
     <ul class="selos">
-      <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-relogio"/></svg>Hora marcada, um cliente por vez</li>
+      <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-relogio"/></svg>Seg a qui 9h&ndash;19h &middot; sex e sáb 8h&ndash;19h</li>
       <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-navalha"/></svg>Navalha e toalha quente</li>
       <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-pente"/></svg>Liso, cacheado e crespo</li>
       <li><svg class="ico ico-sel" aria-hidden="true"><use href="#i-poste"/></svg>Jd. Maria Antônia, Sumaré/SP</li>
@@ -791,32 +819,42 @@ html[data-draft="on"] .so-rascunho{display:block}
     <div class="menu">
       <div class="item destaque">
         <span class="tag">Mais pedido</span>
-        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-poste"/></svg><h3>Corte + Barba</h3></div>
-        <ul>
-          <li>Corte completo, com visagismo</li>
-          <li>Barba com toalha quente e navalha</li>
-        </ul>
-        <p class="preco"><span class="cifra">R$</span><span class="edit">--</span></p>
-      </div>
-
-      <div class="item">
-        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-tesoura"/></svg><h3>Corte / Degradê</h3></div>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-tesoura"/></svg><h3>Corte</h3></div>
         <ul>
           <li>Degradê, social na tesoura ou máquina</li>
-          <li>Nuca e costeleta na navalha</li>
+          <li>Com visagismo e acabamento na navalha</li>
         </ul>
-        <p class="preco"><span class="cifra">R$</span><span class="edit">--</span></p>
+        <p class="preco"><span class="antes">a partir de</span><span class="cifra">R$</span>29,99</p>
       </div>
 
       <div class="item">
-        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-navalha"/></svg><h3>Barba na navalha</h3></div>
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-navalha"/></svg><h3>Barba</h3></div>
         <ul>
           <li>Toalha quente e navalha</li>
           <li>Contorno desenhado</li>
         </ul>
-        <p class="preco"><span class="cifra">R$</span><span class="edit">--</span></p>
+        <p class="preco"><span class="cifra">R$</span>19,99</p>
+      </div>
+
+      <div class="item">
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-gota"/></svg><h3>Alisamento</h3></div>
+        <ul>
+          <li>Para quem quer o cabelo liso</li>
+        </ul>
+        <p class="preco"><span class="cifra">R$</span>24,99</p>
+      </div>
+
+      <div class="item">
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-pente"/></svg><h3>Acabamento</h3></div>
+        <ul>
+          <li>O pezinho, na navalha</li>
+          <li>Entre um corte e outro</li>
+        </ul>
+        <p class="preco"><span class="cifra">R$</span>14,99</p>
       </div>
     </div>
+
+    <p class="cortesia"><svg class="ico" aria-hidden="true"><use href="#i-espelho"/></svg><span><strong>Sobrancelha:</strong> cortesia.</span></p>
 
     <p class="mini" style="margin-top:18px;color:var(--cinza)">
       Formas de pagamento: <span class="edit">PREENCHA (dinheiro, Pix, débito, crédito...)</span>
@@ -855,7 +893,8 @@ html[data-draft="on"] .so-rascunho{display:block}
         <p class="resp">
           Rua Regina Consulin Escalhão, 1021 &ndash; Jd. Maria Antônia, Sumaré/SP.
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Regina+Consulin+Escalh%C3%A3o%2C+1021%2C+Sumar%C3%A9+-+SP" target="_blank" rel="noopener">Ver no mapa</a>.<br>
-          <span class="edit">PREENCHA: dias e horários de funcionamento.</span>
+          <strong>Segunda a quinta:</strong> 9h às 19h.<br>
+          <strong>Sexta e sábado:</strong> 8h às 19h.
         </p>
       </details>
 
@@ -870,7 +909,7 @@ html[data-draft="on"] .so-rascunho{display:block}
       <details>
         <summary>Quanto tempo demora?</summary>
         <p class="resp edit">
-          PREENCHA: tempo médio do corte e do combo corte + barba.
+          PREENCHA: tempo médio do corte e da barba.
         </p>
       </details>
 
@@ -927,7 +966,7 @@ html[data-draft="on"] .so-rascunho{display:block}
     <img class="logo-mini" src="assets/logo.png" width="520" height="372" alt="Dumnus Hub" loading="lazy">
     <p>Rua Regina Consulin Escalhão, 1021 &ndash; Jd. Maria Antônia, Sumaré/SP</p>
     <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Regina+Consulin+Escalh%C3%A3o%2C+1021%2C+Sumar%C3%A9+-+SP" target="_blank" rel="noopener">Como chegar (abre o mapa)</a></p>
-    <p class="edit">Seg a Sáb, 00h às 00h</p>
+    <p>Segunda a quinta, 9h às 19h<br>Sexta e sábado, 8h às 19h</p>
     <p><a href="https://wa.me/5519991030274?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Dumnus%20Hub.">Agendar pelo WhatsApp</a></p>
     <p style="margin-top:16px;opacity:.6">&copy; Dumnus Hub. Todos os direitos reservados.</p>
   </div>
@@ -941,9 +980,8 @@ html[data-draft="on"] .so-rascunho{display:block}
   </a>
 </div>
 
-<!-- SEO local: ajuda a barbearia a aparecer na busca do Google.
-     Quando voce confirmar os horarios, descomente a linha openingHours
-     e preencha no formato 24h (ex: "Tu-Sa 09:00-19:00"). -->
+<!-- SEO local: nome, endereco, telefone, horarios e faixa de preco.
+     E o que ajuda a barbearia a aparecer na busca do Google. -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -960,6 +998,11 @@ html[data-draft="on"] .so-rascunho{display:block}
     "postalCode":"13178-380",
     "addressCountry":"BR"
   },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"19:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:00","closes":"19:00"}
+  ],
+  "priceRange":"R$ 14,99 - R$ 29,99",
   "areaServed":"Sumaré e região",
   "hasMap":"https://www.google.com/maps/search/?api=1&query=Rua+Regina+Consulin+Escalh%C3%A3o%2C+1021%2C+Sumar%C3%A9+-+SP"
 }
