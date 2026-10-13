@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-draft="on">
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -26,14 +26,9 @@
   1) WHATSAPP — JA CONFIGURADO: 5519991030274 (6 botoes na pagina).
      Se o numero mudar, use Localizar e Substituir em todo o arquivo.
 
-  2) DADOS PENDENTES — tudo que falta esta marcado com a classe
-     "edit" e aparece destacado em amarelo enquanto a pagina
-     estiver em modo rascunho.
-     Quando terminar de preencher tudo, troque na linha 2:
-        <html lang="pt-BR" data-draft="on">
-     por:
-        <html lang="pt-BR">
-     e os destaques somem.
+  2) MODO RASCUNHO — ja desligado. Se um dia precisar destacar trechos
+     a revisar, ponha data-draft="on" na tag <html> e marque o trecho
+     com class="edit".
 
   3) FOTOS — coloque os 4 arquivos em assets/fotos/ com os nomes:
        corte-01.jpg  (infantil, degrade alto com estrela)
@@ -457,6 +452,29 @@ html[data-draft="on"] .so-rascunho{display:block}
 }
 .dica-trilho::after{content:"→";color:var(--ouro);font-size:17px}
 
+
+/* ---------- quem corta ---------- */
+.autor-foto{display:grid;gap:22px;align-items:center}
+@media(min-width:640px){.autor-foto{grid-template-columns:200px 1fr}}
+.retrato{
+  width:min(200px,62vw);aspect-ratio:1;object-fit:cover;border-radius:14px;
+  margin:0 auto;border:1px solid rgba(200,162,75,.55);
+  box-shadow:0 12px 30px rgba(0,0,0,.5)
+}
+.autor h3{margin-bottom:4px}
+.autor .cargo{color:var(--ouro);font-family:Oswald,sans-serif;letter-spacing:.08em;
+  text-transform:uppercase;font-size:14px;margin:0 0 12px}
+
+/* ---------- o espaco: foto + dois videos ---------- */
+.trilho .foto{flex:0 0 auto;width:min(64vw,230px)}
+.espaco .clipe video{aspect-ratio:4/5}
+.bloco-espaco{max-width:760px;margin:36px auto 0;text-align:left}
+@media(min-width:760px){
+  .espaco{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;padding:0}
+  .espaco .clipe,.espaco .foto{width:auto}
+  .bloco-espaco .dica-trilho{display:none}
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{transition:none!important;animation:none!important}
@@ -797,12 +815,41 @@ html[data-draft="on"] .so-rascunho{display:block}
     <h2>Quem corta</h2>
     <hr class="rule">
 
-    <div class="autor" style="text-align:left">
-      <p style="margin:0">
-        <span class="edit">PREENCHA: seu nome, há quantos anos corta e uma frase
-        sobre o seu jeito de trabalhar. Deixei em branco porque autoridade
-        inventada é a forma mais rápida de perder um cliente do bairro.</span>
-      </p>
+    <div class="autor autor-foto" style="text-align:left">
+      <img class="retrato" src="assets/vitor.jpg" width="720" height="720"
+           alt="Vitor Tavares, barbeiro da Dumnus Hub" loading="lazy">
+      <div>
+        <h3>Vitor Tavares</h3>
+        <p class="cargo">Barbeiro há mais de 3 anos</p>
+        <ul>
+          <li>Hora marcada, um cliente por vez.</li>
+          <li>Corte, degradê e barba na navalha com toalha quente.</li>
+          <li>Visagismo: o corte certo pro seu rosto e pro seu cabelo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bloco-espaco">
+    <h3 style="margin:0 0 6px">O espaço</h3>
+    <p class="mini" style="color:var(--cinza);margin-bottom:14px">Sinuca, TV e bebida. Chega, senta e relaxa.</p>
+    <p class="dica-trilho" style="margin-bottom:10px">Arraste para o lado</p>
+    <div class="trilho espaco">
+      <figure class="foto" style="margin:0">
+        <img src="assets/espaco/salao.jpg" alt="Interior da Dumnus Hub: parede verde, espelho e cadeira de barbeiro" loading="lazy" width="800" height="1000" onerror="this.closest('.foto').classList.add('sem-foto')">
+        <figcaption class="rotulo">O salão</figcaption>
+        <div class="vazio"><b>FOTO</b>salao.jpg</div>
+      </figure>
+      <figure class="clipe">
+        <video src="assets/espaco/salao-01.mp4" poster="assets/espaco/salao-01.jpg"
+               preload="none" playsinline loop muted></video>
+        <button class="play" type="button" aria-label="Tocar o vídeo do salão"></button>
+      </figure>
+      <figure class="clipe">
+        <video src="assets/espaco/salao-02.mp4" poster="assets/espaco/salao-02.jpg"
+               preload="none" playsinline loop muted></video>
+        <button class="play" type="button" aria-label="Tocar o vídeo da sinuca e das bebidas"></button>
+      </figure>
+    </div>
     </div>
   </div>
 </section>
@@ -857,7 +904,7 @@ html[data-draft="on"] .so-rascunho{display:block}
     <p class="cortesia"><svg class="ico" aria-hidden="true"><use href="#i-espelho"/></svg><span><strong>Sobrancelha:</strong> cortesia.</span></p>
 
     <p class="mini" style="margin-top:18px;color:var(--cinza)">
-      Formas de pagamento: <span class="edit">PREENCHA (dinheiro, Pix, débito, crédito...)</span>
+      Formas de pagamento: dinheiro, Pix e cartão.
     </p>
 
     <div class="cta-bloco">
@@ -906,25 +953,15 @@ html[data-draft="on"] .so-rascunho{display:block}
         </p>
       </details>
 
-      <details>
-        <summary>Quanto tempo demora?</summary>
-        <p class="resp edit">
-          PREENCHA: tempo médio do corte e da barba.
-        </p>
-      </details>
 
       <details>
         <summary>Atendem criança?</summary>
-        <p class="resp edit">
-          PREENCHA: sim ou não, a partir de que idade e se o valor é diferente.
-        </p>
+        <p class="resp">Sim, de todas as idades.</p>
       </details>
 
       <details>
         <summary>Quais formas de pagamento?</summary>
-        <p class="resp edit">
-          PREENCHA: dinheiro, Pix, débito, crédito.
-        </p>
+        <p class="resp">Dinheiro, Pix e cartão.</p>
       </details>
     </div>
   </div>
@@ -1003,6 +1040,8 @@ html[data-draft="on"] .so-rascunho{display:block}
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:00","closes":"19:00"}
   ],
   "priceRange":"R$ 14,99 - R$ 29,99",
+  "paymentAccepted":"Dinheiro, Pix, Cartão",
+  "employee":{"@type":"Person","name":"Vitor Tavares","jobTitle":"Barbeiro"},
   "areaServed":"Sumaré e região",
   "hasMap":"https://www.google.com/maps/search/?api=1&query=Rua+Regina+Consulin+Escalh%C3%A3o%2C+1021%2C+Sumar%C3%A9+-+SP"
 }

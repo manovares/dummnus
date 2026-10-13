@@ -10,89 +10,47 @@ para o mesmo lugar: `wa.me/5519991030274`.
 
 ---
 
-## Falta você preencher
+## Estado atual
 
-A página está em **modo rascunho**: tudo que precisa do seu dado real aparece
-**destacado em amarelo** na tela. Não inventei nenhuma informação.
+**Modo rascunho desligado.** Não há mais nenhum campo pendente na página.
 
-### ~~1. Fotos e vídeos~~ ✅ feito
+Preenchido: endereço, horários, os quatro serviços com preço, sobrancelha de
+cortesia, formas de pagamento (dinheiro, Pix e cartão), atendimento a crianças
+de todas as idades, e o bloco "Quem corta" com a foto do Vitor Tavares,
+barbeiro há mais de 3 anos.
 
-**8 fotos** em `assets/fotos/` (800×1000, ~110 KB cada) e **14 clipes** em
-`assets/videos/` (640px no lado maior, H.264 perfil Main, ~270 KB cada),
-cada um com a sua imagem de capa.
+Mídia em `assets/`:
 
-As fotos carregam quando o visitante rola até a galeria. Os clipes só baixam
-quando alguém toca no play — abrir a página não puxa nenhum vídeo.
-
-Para trocar algum arquivo, mantenha o nome e a proporção (4:5 nas fotos,
-3:4 nos clipes).
-
-### ~~2. Os preços~~ ✅ feito
-
-Corte a partir de R$ 29,99 · Barba R$ 19,99 · Alisamento R$ 24,99 ·
-Acabamento (pezinho) R$ 14,99 · Sobrancelha cortesia.
-
-### 3. O que ainda falta
-
-- formas de pagamento (aparece na tabela de preços e na FAQ)
-- tempo médio do corte e da barba (FAQ)
-- se atende criança e a partir de que idade (FAQ)
-- seu nome e tempo de barbearia (bloco "Quem corta")
-
-O **endereço** e os **horários** já estão preenchidos em todos os lugares:
-topo, rodapé, FAQ e dados de SEO local.
-
----
-
-## Quando terminar de preencher
-
-Na **linha 2** do `index.html`, troque:
-
-```html
-<html lang="pt-BR" data-draft="on">
-```
-
-por:
-
-```html
-<html lang="pt-BR">
-```
-
-Isso apaga a tarja de aviso do topo e todos os destaques amarelos de uma vez.
-**Faça isso antes de divulgar o link.**
-
----
-
-## Duas coisas que valem ativar depois
-
-Estão prontas no código, comentadas, esperando sua decisão:
-
-**Garantia de ajuste gratuito.** Procure por `SECAO 10` no arquivo. É a resposta
-mais forte para o "e se eu não gostar do corte" — mas só ative se você for mesmo
-honrar o prazo. Defina em quantos dias e para quais serviços.
-
-**SEO local (JSON-LD).** Já está **ativo** no fim do arquivo, com nome, endereço,
-CEP, telefone e link do mapa — é o que ajuda a barbearia a aparecer na busca por
-"barbearia em Sumaré". Falta só acrescentar os horários quando você confirmar.
-
----
-
-## O que ainda falta para a página ficar completa
-
-**Depoimentos.** Com as fotos no ar, é o que falta de prova social.
-A seção já existe e está vazia de propósito — não escrevi nenhum depoimento fictício.
-Assim que você tiver avaliações reais (Google, Instagram ou print do WhatsApp),
-é só mandar que eu encaixo.
-
----
-
-## Arquivos de imagem
-
-| Arquivo | Uso |
+| Pasta | Conteúdo |
 |---|---|
-| `assets/logo.png` | logo usada na página (fundo transparente, 28 KB) |
-| `assets/logo-512.jpg` | ícone da aba e imagem de compartilhamento no WhatsApp/redes |
-| `assets/logo.jpg` | original enviado, guardado como referência (não é usado na página) |
+| `fotos/` | 8 fotos de cortes para a galeria (800×1000) |
+| `videos/` | 14 clipes de cortes com capa (carrossel) |
+| `espaco/` | foto do salão e 2 vídeos do espaço, com capas |
+| `vitor.jpg` | retrato do barbeiro |
+
+Os vídeos só baixam quando alguém toca no play. Para trocar um arquivo,
+mantenha o nome e a proporção.
+
+### Vale acrescentar depois
+
+**Depoimentos.** É a única prova social que ainda falta. A seção já existe,
+escondida, no fim da galeria: quando tiver 2 ou 3 avaliações reais (print do
+WhatsApp ou Google), é só me mandar.
+
+**Tempo médio de atendimento.** A pergunta "Quanto tempo demora?" foi retirada
+da FAQ porque não havia resposta. Com o tempo médio do corte e da barba, ela
+volta.
+
+---
+
+## Garantia e SEO local
+
+**Garantia de ajuste gratuito.** Procure por `SECAO 10` no `index.html`. Está
+pronta, comentada. É a resposta mais forte para o "e se eu não gostar do corte"
+— só ative se for honrar o prazo.
+
+**SEO local (JSON-LD).** Ativo no fim do arquivo, com nome, endereço, CEP,
+telefone, horários, faixa de preço, formas de pagamento e o barbeiro.
 
 ---
 
@@ -134,6 +92,5 @@ e emite o certificado HTTPS sozinha.
 
 ### Antes de divulgar o link
 
-Desligue o modo rascunho (`data-draft="on"`, explicado acima) e confira que
-nenhum trecho amarelo ficou na página. Enquanto houver `R$ --` e textos
-começando com `PREENCHA`, qualquer visitante os enxerga.
+Abra o endereço `.vercel.app` no celular, toque num botão e confira que abre o
+WhatsApp certo. Dê play num clipe. Pronto para anunciar.
