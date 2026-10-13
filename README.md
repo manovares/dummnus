@@ -14,7 +14,7 @@ para o mesmo lugar: `wa.me/5519991030274`.
 
 **Modo rascunho desligado.** Não há mais nenhum campo pendente na página.
 
-Preenchido: endereço, horários, os quatro serviços com preço, sobrancelha de
+Preenchido: endereço, horários, os quatro serviços, sobrancelha de
 cortesia, formas de pagamento (dinheiro, Pix e cartão), atendimento a crianças
 de todas as idades, e o bloco "Quem corta" com a foto do Vitor Tavares,
 barbeiro há mais de 3 anos.
@@ -30,6 +30,12 @@ Mídia em `assets/`:
 
 Os vídeos só baixam quando alguém toca no play. Para trocar um arquivo,
 mantenha o nome e a proporção.
+
+### Preços (guardados, fora da página por enquanto)
+
+A tabela mostra os serviços sem valor, com "Consulte no WhatsApp". Quando
+quiser publicar os preços, eles eram: corte a partir de R$ 29,99 · barba
+R$ 19,99 · alisamento R$ 24,99 · acabamento (pezinho) R$ 14,99.
 
 ### Vale acrescentar depois
 
