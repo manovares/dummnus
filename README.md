@@ -92,7 +92,7 @@ republica o site sozinho.
 ### 3. Domínio
 
 A Vercel dá um endereço `.vercel.app` de graça, que já serve para anunciar.
-Para usar um domínio próprio (ex: `dumnushub.com.br`), compre o domínio e
+Para usar um domínio próprio (ex: `www.dummnushub.com.br`), compre o domínio e
 aponte em **Settings → Domains**; a Vercel mostra os registros de DNS a criar
 e emite o certificado HTTPS sozinha.
 
