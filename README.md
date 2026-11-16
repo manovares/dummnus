@@ -14,9 +14,9 @@ para o mesmo lugar: `wa.me/5519991030274`.
 
 **Modo rascunho desligado.** Não há mais nenhum campo pendente na página.
 
-Preenchido: endereço, horários, os quatro serviços, sobrancelha de
-cortesia, formas de pagamento (dinheiro, Pix e cartão), atendimento a crianças
-de todas as idades, e o bloco "Quem corta" com a foto do Vitor Tavares,
+Preenchido: endereço, horários, os seis serviços (corte, barba, alisamento,
+acabamento, sobrancelha, hidratação), formas de pagamento (dinheiro, Pix e
+cartão), crianças a partir de 2 anos, e o bloco "Quem corta" com a foto do Vitor Tavares,
 barbeiro há mais de 3 anos.
 
 Mídia em `assets/`:

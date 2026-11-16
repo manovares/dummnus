@@ -211,7 +211,7 @@ section{padding:60px 0}
 /* ---------- tabela de precos ---------- */
 .menu{display:grid;gap:14px}
 @media(min-width:380px){.menu{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:900px){.menu{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:900px){.menu{grid-template-columns:repeat(3,1fr)}}
 /* duas colunas no celular: card mais compacto para o texto continuar legivel */
 @media(max-width:620px){
   /* o icone sai de ao lado do titulo: nomes de uma palavra so ("ALISAMENTO")
@@ -902,9 +902,23 @@ html[data-draft="on"] .so-rascunho{display:block}
         </ul>
         <p class="preco consulte">Consulte no WhatsApp</p>
       </div>
-    </div>
 
-    <p class="cortesia"><svg class="ico" aria-hidden="true"><use href="#i-espelho"/></svg><span><strong>Sobrancelha:</strong> cortesia.</span></p>
+      <div class="item">
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-espelho"/></svg><h3>Sobrancelha</h3></div>
+        <ul>
+          <li>Desenho e limpeza</li>
+        </ul>
+        <p class="preco consulte">Consulte no WhatsApp</p>
+      </div>
+
+      <div class="item">
+        <div class="ico-cabec"><svg class="ico" aria-hidden="true"><use href="#i-gota"/></svg><h3>Hidratação</h3></div>
+        <ul>
+          <li>Pro cabelo e pra barba</li>
+        </ul>
+        <p class="preco consulte">Consulte no WhatsApp</p>
+      </div>
+    </div>
 
     <p class="mini" style="margin-top:18px;color:var(--cinza)">
       Formas de pagamento: dinheiro, Pix e cartão.
@@ -959,7 +973,7 @@ html[data-draft="on"] .so-rascunho{display:block}
 
       <details>
         <summary>Atendem criança?</summary>
-        <p class="resp">Sim, de todas as idades.</p>
+        <p class="resp">Sim, a partir de 2 anos. Dependendo da criança, o acabamento é feito sem navalha.</p>
       </details>
 
       <details>
